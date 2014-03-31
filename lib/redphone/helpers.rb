@@ -16,9 +16,9 @@ def http_request(options={})
   body = options[:body]
   proxy = nil
   if uri.scheme == "https" or options[:ssl]
-    proxy = URI.parse(ENV[:https_proxy]) if ENV[:https_proxy]
+    proxy = URI.parse(ENV['https_proxy']) if ENV['https_proxy']
   else
-    proxy = URI.parse(ENV[:http_proxy]) if ENV[:http_proxy]
+    proxy = URI.parse(ENV['http_proxy']) if ENV['http_proxy']
   end
   if proxy
     http = Net::HTTP.new(uri.host, uri.port, proxy.host, proxy.port)
